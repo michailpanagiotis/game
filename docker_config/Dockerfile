@@ -7,8 +7,10 @@ RUN mix local.rebar --force && \
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ENV PROJECTHOME=/src
 ADD . $PROJECTHOME
 WORKDIR $PROJECTHOME
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]

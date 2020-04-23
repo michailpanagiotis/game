@@ -11,6 +11,8 @@ services:
       - vol_node_modules:/src/assets/node_modules
     depends_on:
       - db
+    env_file:
+      - .env
   db:
     container_name: phoenix_db
     image: "postgres:12.2"
