@@ -7,14 +7,18 @@ services:
       - "4000:4000"
     volumes:
       - ./src:/src
+      - vol_deps:/src/deps
+      - vol_node_modules:/src/assets/node_modules
     depends_on:
       - db
   db:
     container_name: phoenix_db
     image: "postgres:12.2"
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - vol_db:/var/lib/postgresql/data
     env_file:
       - .env
 volumes:
-  db-data:
+  vol_deps:
+  vol_node_modules:
+  vol_db:

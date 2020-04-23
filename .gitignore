@@ -1,3 +1,7 @@
 *.un~
 *.swp
 .env
+
+node_modules
+_build
+src/deps
